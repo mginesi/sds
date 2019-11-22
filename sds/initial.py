@@ -12,7 +12,7 @@ from sds.stats import multivariate_normal_logpdf
 
 class CategoricalInitState:
 
-    def __init__(self, nb_states, prior, reg=1e-128):
+    def __init__(self, nb_states, prior, reg=1e-12):
         self.nb_states = nb_states
 
         self.prior = prior
@@ -60,7 +60,7 @@ class CategoricalInitState:
 
 class GaussianInitObservation:
 
-    def __init__(self, nb_states, dm_obs, dm_act, prior, reg=1e-128):
+    def __init__(self, nb_states, dm_obs, dm_act, prior, reg=1e-12):
         self.nb_states = nb_states
         self.dm_obs = dm_obs
         self.dm_act = dm_act
@@ -136,7 +136,7 @@ class GaussianInitObservation:
 
 class GaussianInitControl:
 
-    def __init__(self, nb_states, dm_obs, dm_act, prior, reg=1e-128):
+    def __init__(self, nb_states, dm_obs, dm_act, prior, reg=1e-12):
         self.nb_states = nb_states
         self.dm_obs = dm_obs
         self.dm_act = dm_act
