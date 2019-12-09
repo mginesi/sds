@@ -5,7 +5,6 @@ from sds import ARHMM
 from sds.utils import permutation
 
 import matplotlib.pyplot as plt
-from hips.plotting.colormaps import gradient_cmap
 
 import seaborn as sns
 
@@ -16,7 +15,6 @@ sns.set_context("talk")
 color_names = ["windows blue", "red", "amber", "faded green", "dusty purple", "orange"]
 
 colors = sns.xkcd_palette(color_names)
-cmap = gradient_cmap(colors)
 
 true_arhmm = ARHMM(nb_states=3, dm_obs=2)
 
@@ -45,13 +43,13 @@ _, arhmm_z = arhmm.viterbi(x[_seq])
 
 plt.figure(figsize=(8, 4))
 plt.subplot(211)
-plt.imshow(true_z[_seq][None, :], aspect="auto", cmap=cmap, vmin=0, vmax=len(colors) - 1)
+plt.imshow(true_z[_seq][None, :], aspect="auto", vmin=0, vmax=len(colors) - 1)
 plt.xlim(0, len(x[_seq]))
 plt.ylabel("$z_{\\mathrm{true}}$")
 plt.yticks([])
 
 plt.subplot(212)
-plt.imshow(arhmm_z[0][None, :], aspect="auto", cmap=cmap, vmin=0, vmax=len(colors) - 1)
+plt.imshow(arhmm_z[0][None, :], aspect="auto", vmin=0, vmax=len(colors) - 1)
 plt.xlim(0, len(x[_seq]))
 plt.ylabel("$z_{\\mathrm{inferred}}$")
 plt.yticks([])
