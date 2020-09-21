@@ -15,7 +15,7 @@ from sklearn.preprocessing import PolynomialFeatures
 
 class CategoricalInitState:
 
-    def __init__(self, nb_states, prior, reg=1e-8):
+    def __init__(self, nb_states, prior, reg=1e-12):
         self.nb_states = nb_states
 
         self.prior = prior
@@ -63,11 +63,8 @@ class CategoricalInitState:
 
 class GaussianInitObservation:
 
-    def __init__(self, nb_states, dm_obs, dm_act, prior, reg=1e-8):
-        self.nb_states = nb_states
-        self.dm_obs = dm_obs
+    def __init__(self, nb_states, dm_obs, dm_act, prior, reg=1e-12):
         self.dm_act = dm_act
-
         self.prior = prior
         self.reg = reg
 
@@ -163,8 +160,7 @@ class GaussianInitObservation:
 
 class GaussianInitControl:
 
-    def __init__(self, nb_states, dm_obs, dm_act,
-                 prior, lags=1, degree=1, reg=1e-8):
+    def __init__(self, nb_states, dm_obs, dm_act, prior, reg=1e-12):
         self.nb_states = nb_states
         self.dm_obs = dm_obs
         self.dm_act = dm_act
