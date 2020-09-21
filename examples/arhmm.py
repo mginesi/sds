@@ -29,7 +29,7 @@ T = [1250, 1150, 1025]
 true_z, x = true_arhmm.sample(horizon=T)
 true_ll = true_arhmm.log_norm(x)
 
-arhmm = ARHMM(nb_states=3, dm_obs=2, preprocess=False)
+arhmm = ARHMM(nb_states=3, dm_obs=2)
 arhmm.initialize(x)
 
 lls = arhmm.em(x, nb_iter=100, prec=0.)

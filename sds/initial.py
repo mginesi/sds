@@ -67,6 +67,8 @@ class GaussianInitObservation:
         self.dm_act = dm_act
         self.prior = prior
         self.reg = reg
+        self.nb_states = nb_states
+        self.dm_obs = dm_obs
 
         self.mu = npr.randn(self.nb_states, self.dm_obs)
 
